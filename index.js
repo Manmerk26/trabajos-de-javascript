@@ -9,7 +9,7 @@ const ListaProductos = [
     {producto: "gigantografias" , precioUnit:7000, cantDesc:2, descuento:18},
     {producto: "invitacionesDigitales" , precioUnit:1300, cantDesc:5, descuento:15},
 ];
-/*const GranCompra = ListaProductos.filter()*/
+
 
 let nombre = prompt("Ingrese el producto que desee");
 let productoComprado = ListaProductos.find(item => item.producto === nombre);
