@@ -10,8 +10,15 @@ const ListaProductos = [
     {producto: "invitacionesDigitales" , precioUnit:1300, cantDesc:5, descuento:15},
 ];
 
+    
+let todoslosNombres = ListaProductos.map((item) => item.producto);
+listaNombres=todoslosNombres.join( " - ");
 
-let nombre = prompt("Ingrese el producto que desee");
+let nombre = prompt("Ingrese el producto que desee:\n"+ listaNombres)
+nombre=""
+while (nombre===""){
+    nombre =  prompt("Ingrese el producto que desee:\n"+ listaNombres);
+   };
 let productoComprado = ListaProductos.find(item => item.producto === nombre);
 let cantidad = parseInt(prompt("Ingrese la cantidad"));
 let precio = productoComprado.precioUnit;
@@ -20,7 +27,11 @@ if (cantidad > productoComprado.cantDesc) {
 };
 let aPagar= cantidad * precio;
 alert ("usted ha comprado"+" "+ nombre +" "+ "al precio de" + " " + aPagar);
-contacto = prompt("Ingrese su contacto y nos comunicaremos a la brevedad");
+contacto = prompt("Ingrese su contacto y nos comunicaremos a la brevedad")
+contacto=""
+while (contacto===""){
+ contacto = prompt("Ingrese su contacto y nos comunicaremos a la brevedad");
+}
 alert ("Gracias por visitarnos");
 
 
