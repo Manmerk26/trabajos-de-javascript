@@ -14,7 +14,7 @@ const ListaProductos = [
 let todoslosNombres = ListaProductos.map((item) => item.producto);
 listaNombres=todoslosNombres.join( " - ");
 
-let nombre = prompt("Ingrese el producto que desee:\n"+ listaNombres)
+
 nombre=""
 while (nombre===""){
     nombre =  prompt("Ingrese el producto que desee:\n"+ listaNombres);
