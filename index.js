@@ -15,8 +15,8 @@ let todoslosNombres = ListaProductos.map((item) => item.producto);
 listaNombres=todoslosNombres.join( " - ");
 
 
-nombre=""
-while (nombre===""){
+let nombre="";
+while (nombre === ""){
     nombre =  prompt("Ingrese el producto que desee:\n"+ listaNombres);
    };
 let productoComprado = ListaProductos.find(item => item.producto === nombre);
@@ -27,11 +27,10 @@ if (cantidad > productoComprado.cantDesc) {
 };
 let aPagar= cantidad * precio;
 alert ("usted ha comprado"+" "+ nombre +" "+ "al precio de" + " " + aPagar);
-contacto = prompt("Ingrese su contacto y nos comunicaremos a la brevedad")
-contacto=""
-while (contacto===""){
+let contacto="";
+while (contacto === ""){
  contacto = prompt("Ingrese su contacto y nos comunicaremos a la brevedad");
-}
+};
 alert ("Gracias por visitarnos");
 
 
