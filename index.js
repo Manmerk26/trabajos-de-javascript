@@ -15,9 +15,12 @@ let todoslosNombres = ListaProductos.map((item) => item.producto);
 listaNombres=todoslosNombres.join( " - ");
 
 
+
+
+
 let nombre="";
 while (nombre === ""){
-    nombre =  prompt("Ingrese el producto que desee:\n"+ listaNombres);
+    nombre =  prompt("Ingrese el producto que desee:\n"+ listaNombres );
    };
 let productoComprado = ListaProductos.find(item => item.producto === nombre);
 let cantidad = parseInt(prompt("Ingrese la cantidad"));
