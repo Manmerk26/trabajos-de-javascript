@@ -18,12 +18,22 @@ listaNombres=todoslosNombres.join( " - ");
 
 
 
+
+ 
 let nombre="";
 while (nombre === ""){
-    nombre =  prompt("Ingrese el producto que desee:\n"+ listaNombres );
+    nombre =prompt("Ingrese el producto que desee:\n"+ listaNombres ); 
    };
 let productoComprado = ListaProductos.find(item => item.producto === nombre);
-let cantidad = parseInt(prompt("Ingrese la cantidad"));
+let cantidad = parseInt(prompt("Ingrese la cantidad,adquiriendo mas de 20 tiene un mayor descuento")); 
+const mayorDescuento = ListaProductos.filter((item) =>item.cantDesc < cantidad);
+console.log(mayorDescuento);
+mensaje="lista de productos con descuentos:";
+for(let i = 0;i < mayorDescuento.length;i++){
+    mensaje=`${mensaje} "\n" ${mayorDescuento.producto}`;
+
+};
+alert(mensaje);
 let precio = productoComprado.precioUnit;
 if (cantidad > productoComprado.cantDesc) {
     precio = precio - (precio/100 * productoComprado.descuento);
