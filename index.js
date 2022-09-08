@@ -30,14 +30,13 @@ const mayorDescuento = ListaProductos.filter((item) =>item.cantDesc < cantidad);
 console.log(mayorDescuento);
 mensaje="lista de productos con descuentos:";
 for(let i = 0;i < mayorDescuento.length;i++){
-    mensaje=`${mensaje} "\n" ${mayorDescuento.producto}`;
-
+    mensaje=`${mensaje} \n ${mayorDescuento[i].producto}`;
 };
 alert(mensaje);
 let precio = productoComprado.precioUnit;
 if (cantidad > productoComprado.cantDesc) {
     precio = precio - (precio/100 * productoComprado.descuento);
-};
+}
 let aPagar= cantidad * precio;
 alert ("usted ha comprado"+" "+ nombre +" "+ "al precio de" + " " + aPagar);
 let contacto="";
