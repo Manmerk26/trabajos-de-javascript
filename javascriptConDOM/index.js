@@ -1,6 +1,6 @@
 let contenedor = document.getElementById("contenedor");
 let ListaProductos = [
-    {producto: "babyshowers" , precioUnit:50, cantDesc:20, descuento:12,},
+    {producto: "babyshowers" , precioUnit:50, cantDesc:20, descuento:12},
     {producto: "cumpleaños" , precioUnit:4500, cantDesc:2, descuento:13},
     {producto: "comuniones" , precioUnit:200, cantDesc:10, descuento:10},
     {producto: "props" , precioUnit:80 ,cantDesc:20, descuento:10},
