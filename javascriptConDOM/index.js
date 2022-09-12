@@ -25,7 +25,9 @@ if (cantidad > productoComprado.cantDesc) {
     precio = precio - (precio/100 * productoComprado.descuento);
 };
 let aPagar= cantidad * precio;
-for (let producto of productoComprado.producto) {
+let arrProdComp = [];
+arrProdComp.push(productoComprado);
+for (let producto of arrProdComp) {
     let item = document.createElement("div");
     item.innerHTML = `<div class="card">
                       <img src=${productoComprado.img} class="imagen"></img>
