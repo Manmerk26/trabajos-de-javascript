@@ -1,18 +1,43 @@
+import {ListaProductos} from "./data.js";
 let contenedor = document.getElementById("contenedor");
-let ListaProductos = [
-    {producto: "babyshowers" , precioUnit:50, cantDesc:20, descuento:12,img: `http://creacionesajonjoli.000webhostapp.com/imagenes/tarjeta-baby-shower.webp`},
-    {producto: "cumpleaños" , precioUnit:4500, cantDesc:2, descuento:13,img: `http://creacionesajonjoli.000webhostapp.com/imagenes/felizcumple.jpeg`},
-    {producto: "comuniones" , precioUnit:200, cantDesc:10, descuento:10,img:`http://creacionesajonjoli.000webhostapp.com/imagenes/comunion.jpeg`},
-    {producto: "props" , precioUnit:80 ,cantDesc:20, descuento:10,img:`http://creacionesajonjoli.000webhostapp.com/imagenes/props.jpeg`},
-    {producto: "bautismos" , precioUnit:5500, cantDesc:2, descuento:13,img:`http://creacionesajonjoli.000webhostapp.com/imagenes/bautismo.jpeg`},
-    {producto: "books" , precioUnit:3200, cantDesc:2 ,descuento:10,img: `http://creacionesajonjoli.000webhostapp.com/imagenes/brisa.jpg`},
-    {producto: "gigantografias" , precioUnit:7000, cantDesc:2, descuento:18, img:`http://creacionesajonjoli.000webhostapp.com/imagenes/gigantografias.jpeg`},
-    {producto: "invitacionesDigitales" , precioUnit:1300, cantDesc:5, descuento:15,img:`http://creacionesajonjoli.000webhostapp.com/imagenes/invitacion-digital.jpg`},
-];
-    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 let todoslosNombres = ListaProductos.map((item) => item.producto);
 listaNombres=todoslosNombres.join( " - ");
-
 let nombre="";
 while (nombre === ""){
     nombre =prompt("Ingrese el producto que desee:\n"+ listaNombres ); 
@@ -39,4 +64,4 @@ for (let producto of arrProdComp) {
                       console.log(item);
     contenedor.append(item);
 break;
-}
+} */
