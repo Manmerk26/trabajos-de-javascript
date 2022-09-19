@@ -39,6 +39,8 @@ dibujarCatalogoProductos();
 
 
 //Definiciones de funciones
+
+
 function cargarProductos() {
     productos.push(new Producto(1, 'Babyshowers' , 50 ,`http://creacionesajonjoli.000webhostapp.com/imagenes/tarjeta-baby-shower.webp` ));
     productos.push(new Producto(2, 'Cumpleaños' , 4500 , `http://creacionesajonjoli.000webhostapp.com/imagenes/felizcumple.jpeg`));
@@ -49,6 +51,7 @@ function cargarProductos() {
     productos.push(new Producto(7, 'Gigantografias' , 7000 , `http://creacionesajonjoli.000webhostapp.com/imagenes/gigantografias.jpeg`));
     productos.push(new Producto(8, 'InvitacionesDigitales' , 1300 , `http://creacionesajonjoli.000webhostapp.com/imagenes/invitacion-digital.jpg`));
 }
+
 
 function cargarCarrito(){}
 function dibujarCarrito() {
@@ -69,6 +72,7 @@ function dibujarCarrito() {
             `;
 
             contenedorCarritoCompras.append(renglonesCarrito);
+            this.guardarProductosLocal(elemento)//Guardar producto en el local storage
 
             //Agregar evento a input de renglón en carrito
             let inputCantidadProducto = document.getElementById(`cantidad-producto-${elemento.producto.id}`);
@@ -85,11 +89,10 @@ function dibujarCarrito() {
             botonEliminarProducto.addEventListener('click', () => {
                 let indiceEliminar =  elementosCarrito.indexOf(elemento);
                 elementosCarrito.splice(indiceEliminar,1);
-                
+               
                 dibujarCarrito();
             });
-
-
+        
         }
     );
 
@@ -203,137 +206,34 @@ function dibujarCatalogoProductos() {
 
 }
 
+function guardarProductosLocal(producto){
+    let productos;
+    productos = this.obtenerProductLocal();
+    productos.push(producto);
+    localStorage.setItem(`productos`, JSON.stringify(productos))
+}
 
+function obtenerProductLocal() {
+    let productoLS;
 
+    if(localStorage.getItem(`productos`) === null){
+        productoLS = [];
+    }
+    else{
+        productoLS = JSON.parse(localStorage.getItem(`productos`));
+    }
+ return productoLS;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* let contenedor = document.getElementById("contenedor");
-const fragment = document.createDocumentFragment();
-const template = document.querySelector("#template-li").content;
-
-
-ListaProductos.forEach((item) => {
-    let item = document.createElement("div");
-    item.innerHTML = `<div class="card">
-                      <img src=${productoComprado.img} class="imagen"></img>
-                      <h2>${productoComprado.producto}</h2>
-                      <p>PrecioUnit: $${productoComprado.precioUnit}</p>                      
-                      <b>Comprando mas de ${productoComprado.cantDesc} productos tendra un descuento del ${productoComprado.descuento}%</b>
-                      <p>Precio Total: $${aPagar}</p>
-                      </div>`;
-                      console.log(item);
-    contenedor.append(item);
-break;
+/* function eliminarProductoLocal(elementoAEliminar){
+    let productosLS;
+    productosLS = this. obtenerProductLocal();
+    productosLS.forEach(function(productoLS, index){
+        if(productoLS.id === elementoAEliminar){
+            productosLS.splice(index, 1);
+        }
+    });
+    localStorage.setItem(`productos`,JSON.stringify(productosLS));
 }
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-/* let todoslosNombres = ListaProductos.map((item) => item.producto);
-listaNombres=todoslosNombres.join( " - ");
-let nombre="";
-while (nombre === ""){
-    nombre =prompt("Ingrese el producto que desee:\n"+ listaNombres ); 
-   };
-let productoComprado = ListaProductos.find(item => item.producto === nombre);
-console.log(productoComprado);
-let cantidad = parseInt(prompt("Ingrese la cantidad,adquiriendo mas de 20 tiene un mayor descuento"));
-let precio = productoComprado.precioUnit;
-if (cantidad > productoComprado.cantDesc) {
-    precio = precio - (precio/100 * productoComprado.descuento);
-};
-let aPagar= cantidad * precio;
-let arrProdComp = [];
-arrProdComp.push(productoComprado);
-for (let producto of arrProdComp) {
-    let item = document.createElement("div");
-    item.innerHTML = `<div class="card">
-                      <img src=${productoComprado.img} class="imagen"></img>
-                      <h2>${productoComprado.producto}</h2>
-                      <p>PrecioUnit: $${productoComprado.precioUnit}</p>                      
-                      <b>Comprando mas de ${productoComprado.cantDesc} productos tendra un descuento del ${productoComprado.descuento}%</b>
-                      <p>Precio Total: $${aPagar}</p>
-                      </div>`;
-                      console.log(item);
-    contenedor.append(item);
-break;*/
