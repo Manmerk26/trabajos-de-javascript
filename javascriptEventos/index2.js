@@ -85,15 +85,18 @@ function dibujarCarrito() {
 
 
             //Agregar evento a eliminar producto
+            
             let botonEliminarProducto = document.getElementById(`eliminar-producto-${elemento.producto.id}`);
             botonEliminarProducto.addEventListener('click', () => {
                 let indiceEliminar =  elementosCarrito.indexOf(elemento);
                 elementosCarrito.splice(indiceEliminar,1);
                
                 dibujarCarrito();
+                
             });
-        
+           
         }
+        
     );
 
     const valorInicial = 0;
@@ -112,9 +115,10 @@ function dibujarCarrito() {
 function removerProductoCarrito(elementoAEliminar) {
     const elementosAMantener = elementosCarrito.filter((elemento) => elementoAEliminar.producto.id != elemento.producto.id);
     elementosCarrito.length = 0;
-
     elementosAMantener.forEach((elemento) => elementosCarrito.push(elemento));
+    this.eliminarProductoLocal(id);
 }
+
 
 function crearCard(producto) {
     //Botón
@@ -225,15 +229,15 @@ function obtenerProductLocal() {
  return productoLS;
 }
 
-/* function eliminarProductoLocal(elementoAEliminar){
+function eliminarProductoLocal(id){
     let productosLS;
     productosLS = this. obtenerProductLocal();
     productosLS.forEach(function(productoLS, index){
-        if(productoLS.id === elementoAEliminar){
+        if(productoLS.id === id){
             productosLS.splice(index, 1);
         }
     });
     localStorage.setItem(`productos`,JSON.stringify(productosLS));
 }
- */
-
+ 
+ 
