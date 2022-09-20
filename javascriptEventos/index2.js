@@ -87,17 +87,27 @@ function dibujarCarrito() {
             //Agregar evento a eliminar producto
             
             let botonEliminarProducto = document.getElementById(`eliminar-producto-${elemento.producto.id}`);
+            
             botonEliminarProducto.addEventListener('click', () => {
                 let indiceEliminar =  elementosCarrito.indexOf(elemento);
                 elementosCarrito.splice(indiceEliminar,1);
-               
                 dibujarCarrito();
+            
+            /* productosLS = this. obtenerProductLocal();
+            botonEliminarProductoLocal.addEventListener('onclick', () =>{
+                if(productoLS.id === indiceEliminar){
+                    productosLS.splice(index, 1);
+            };
+            localStorage.setItem(`productos`,JSON.stringify(productosLS));
+            
                 
-            });
+            }); */
            
-        }
-        
-    );
+        });
+
+
+    }
+);
 
     const valorInicial = 0;
     const totalCompra = elementosCarrito.reduce(
@@ -110,13 +120,12 @@ function dibujarCarrito() {
     } else {
         contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="6">Total de la compra: ${estandarPesosArg.format(totalCompra)}</th>`;
     }
-
 }
+
 function removerProductoCarrito(elementoAEliminar) {
     const elementosAMantener = elementosCarrito.filter((elemento) => elementoAEliminar.producto.id != elemento.producto.id);
     elementosCarrito.length = 0;
     elementosAMantener.forEach((elemento) => elementosCarrito.push(elemento));
-    this.eliminarProductoLocal(id);
 }
 
 
@@ -229,15 +238,14 @@ function obtenerProductLocal() {
  return productoLS;
 }
 
-function eliminarProductoLocal(id){
+ /* function eliminarProductoLocal(){
     let productosLS;
     productosLS = this. obtenerProductLocal();
     productosLS.forEach(function(productoLS, index){
-        if(productoLS.id === id){
+        if(productoLS.id === ){
             productosLS.splice(index, 1);
         }
     });
     localStorage.setItem(`productos`,JSON.stringify(productosLS));
-}
- 
- 
+} */
+
