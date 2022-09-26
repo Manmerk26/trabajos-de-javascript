@@ -35,14 +35,19 @@ const contenedorFooterCarrito = document.querySelector("#footer");
 
 
 
+
 cargarProductos();
 cargarCarrito();
-if(localStorage.getItem('carrito')){
+ carrito = JSON.parse(localStorage.getItem('carrito')) || [] ; 
+  for (i=0;i<carrito.length;i++){
+    elementosCarrito.push(new ElementoCarrito(carrito[i].producto,carrito[i].cantidad))} ;
+ 
+/* if(localStorage.getItem('carrito')){
     carrito = JSON.parse(localStorage.getItem('carrito'));
     for (i=0;i<carrito.length;i++){
         elementosCarrito.push(new ElementoCarrito(carrito[i].producto,carrito[i].cantidad))
     }
-}
+} */
 dibujarCarrito();
 dibujarCatalogoProductos();
 
@@ -112,12 +117,16 @@ function dibujarCarrito() {
         valorInicial
         
     );
-
-    if(elementosCarrito.length == 0) {
+    
+    elementosCarrito.length == 0 ? contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="6">Carrito vacío - comience a comprar!</th>` : contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="6">Total de la compra: ${estandarPesosArg.format(totalCompra)}</th>` ;
+    
+    /* if(elementosCarrito.length == 0) {
         contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="6">Carrito vacío - comience a comprar!</th>`;
     } else {
         contenedorFooterCarrito.innerHTML = `<th scope="row" colspan="6">Total de la compra: ${estandarPesosArg.format(totalCompra)}</th>`;
-    }
+    } */
+
+
 
      localStorage.setItem('carrito', JSON.stringify(elementosCarrito));//Guardar producto en el local storage  
 }
@@ -166,12 +175,18 @@ function crearCard(producto) {
         let elementoExistente = 
             elementosCarrito.find((elem) => elem.producto.id == producto.id);
         
-        if(elementoExistente) {
+            elementoExistente ? elementoExistente.cantidad+=1 : elementoCarrito = new ElementoCarrito(producto, 1);
+            elementosCarrito.push(elementoCarrito);
+
+
+
+
+        /* if(elementoExistente) {
             elementoExistente.cantidad+=1;
         } else {
             let elementoCarrito = new ElementoCarrito(producto, 1);
             elementosCarrito.push(elementoCarrito);
-        }
+        } */
 
         dibujarCarrito();
 
