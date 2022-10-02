@@ -1,9 +1,12 @@
+
+
+
 class Producto {
-    constructor(id, nombre, precio, foto) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.foto = foto;
+    constructor(producto) {
+        this.id = producto.id;
+        this.nombre = producto.nombre;
+        this.precio =producto.precio;
+        this.foto = producto.foto;
     }
 }
 
@@ -33,10 +36,19 @@ const contenedorFooterCarrito = document.querySelector("#footer");
  
 //Ejecucion de funciones
 
+fetch("./data.json")
+.then(response => response.json())
+.then(data =>{
+    data.forEach(elemento => {
+        productos.push(new Producto(elemento));
+    });
+dibujarCatalogoProductos("");
+    })
 
 
+    
 
-cargarProductos();
+
 cargarCarrito();
  carrito = JSON.parse(localStorage.getItem('carrito')) || [] ; 
   for (i=0;i<carrito.length;i++){
@@ -55,6 +67,7 @@ dibujarCatalogoProductos();
 //Definiciones de funciones
 
 
+/* 
 function cargarProductos() {
     productos.push(new Producto(1, 'Babyshowers' , 50 ,`http://creacionesajonjoli.000webhostapp.com/imagenes/tarjeta-baby-shower.webp` ));
     productos.push(new Producto(2, 'Cumpleaños' , 4500 , `http://creacionesajonjoli.000webhostapp.com/imagenes/felizcumple.jpeg`));
@@ -65,7 +78,7 @@ function cargarProductos() {
     productos.push(new Producto(7, 'Gigantografias' , 7000 , `http://creacionesajonjoli.000webhostapp.com/imagenes/gigantografias.jpeg`));
     productos.push(new Producto(8, 'InvitacionesDigitales' , 1300 , `http://creacionesajonjoli.000webhostapp.com/imagenes/invitacion-digital.jpg`));
 }
-
+ */
 
 function cargarCarrito(){}
 function dibujarCarrito() {
