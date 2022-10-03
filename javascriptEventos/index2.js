@@ -32,19 +32,46 @@ const contenedorCarritoCompras = document.querySelector("#items")
 
 const contenedorFooterCarrito = document.querySelector("#footer");
 
-
+document.addEventListener('DOMContentLoaded', () =>{
+    traerData();
+})
  
+
+
+const traerData = async () =>{
+try{
+    const reponse = await fetch (`./data.json`);
+    const data = await reponse.json();
+    data.forEach(elemento => {
+        productos.push(new Producto(elemento));
+    });
+    dibujarCatalogoProductos("");
+}
+catch(error){ 
+    console.log(error);}
+}
+
+
+
 //Ejecucion de funciones
 
-fetch("./data.json")
+
+/* fetch(`./data.json`, {
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+     }
+    })
 .then(response => response.json())
 .then(data =>{
     data.forEach(elemento => {
         productos.push(new Producto(elemento));
     });
+
 dibujarCatalogoProductos("");
     })
-
+.catch(error => console.log(error));
+ */
 
     
 
