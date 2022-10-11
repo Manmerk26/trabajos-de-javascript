@@ -149,6 +149,8 @@ function dibujarCarrito() {
             
         });
 
+
+
           //Terminar compra
           let botonTerminarCompra = document.getElementsByClassName(`btn-primary-${contenedorCarritoCompras}`);
 
@@ -225,6 +227,8 @@ function dibujarCarrito() {
         
     });
 
+
+    
     const valorInicial = 0;
     const totalCompra = elementosCarrito.reduce(
         (previousValue, currentValue) => previousValue + currentValue.producto.precio*currentValue.cantidad,
