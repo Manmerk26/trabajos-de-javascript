@@ -152,9 +152,15 @@ function dibujarCarrito() {
 
 
           //Terminar compra
-          let botonTerminarCompra = document.getElementsByClassName(`btn-primary-${contenedorCarritoCompras}`);
+          let botonTerminarCompra = document.getElementsByClassName(`btn-primary-${elementosCarrito}`);
 
-          botonTerminarCompra.addEventListener('onclick', (e) => {
+          botonTerminarCompra.onclick = () => {
+            elementosCarrito.forEach(
+                (elemento) =>{
+                    elemento.producto.nombre;
+                    elemento.cantidad;
+                    totalCompra();
+                }            )
              //Enviamos informacion en forma de parametros a traves de la url
         let params = {
             user_id: 'user_yVrRAHjsxIJshwpBg',
@@ -220,15 +226,14 @@ function dibujarCarrito() {
               })
         });
         
-        
 
-          } )
+    }
 
         
     });
 
 
-    
+
     const valorInicial = 0;
     const totalCompra = elementosCarrito.reduce(
         (previousValue, currentValue) => previousValue + currentValue.producto.precio*currentValue.cantidad,
